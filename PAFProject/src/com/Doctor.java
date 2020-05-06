@@ -32,7 +32,7 @@ public class Doctor {
 
 			// create a prepared statement
 
-			String query = " insert into doc(`Did`,`Dfirstname`,`Dlastname`,`Dphone`,`Ddes`)"
+			String query = " insert into doctor(`Did`,`Dfirstname`,`Dlastname`,`Dphone`,`Ddes`)"
 					+ " values(?, ?, ?, ?, ?)";
 
 			PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -52,7 +52,7 @@ public class Doctor {
 			output = "{\"status\":\"success\", \"data\": \"" + newDetails + "\"}";
 
 		} catch (Exception e) {
-			output = "Error while inserting the item.";
+			output = "Error while inserting the doctor.";
 			System.err.println(e.getMessage());
 		}
 		return output;
@@ -71,7 +71,7 @@ public class Doctor {
 			// Prepare the html table to be displayed
 			output = "<table border=\"1\"><tr><th>Doctor Code</th><th>Doctor First Name</th><th>Doctor Last Name</th><th>Doctor Phone no</th><th>Doctor Description</th></tr>";
 
-			String query = "select * from doc";
+			String query = "select * from doctor";
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 
@@ -121,7 +121,7 @@ public class Doctor {
 			}
 
 			// create a prepared statement
-			String query = "UPDATE doc SET Did=?, Dfirstname=?, Dlastname=?, Dphone=?, Ddes=? WHERE no=?";
+			String query = "UPDATE doctor SET Did=?, Dfirstname=?, Dlastname=?, Dphone=?, Ddes=? WHERE no=?";
 
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
@@ -156,7 +156,7 @@ public class Doctor {
 			}
 
 			// create a prepared statement
-			String query = "delete from doc where no=?";
+			String query = "delete from doctor where no=?";
 
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
